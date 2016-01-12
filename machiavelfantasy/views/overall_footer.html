@@ -1,0 +1,32 @@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page-footer">
+                <?php
+                    include_once("views/navbar_footer.html");//On affiche la bar de menu du footer
+                ?>
+                <div class="copyright">
+                    <!-- EVENT overall_footer_copyright_prepend -->
+                    <?php
+                        echo $site_config['CREDIT_LINE'];
+                        if($site_config['TRANSLATION_INFO'])echo "<br/> ".$site_config['TRANSLATION_INFO'];
+                    ?>
+                    <!-- EVENT overall_footer_copyright_append -->
+                    <?php
+                        if($site_config['DEBUG_OUTPUT']) echo "<br/> ".$site_config['DEBUG_OUTPUT'];
+                    ?>
+                    <br/><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+                    <?php
+                        if($site_config['U_ACP']){ ?><strong><a href="<?=$site_config['U_ACP'];?>"><?=$site_config['L_ACP'];?></a></strong>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <!-- js phpbb-->
+        <!--<script type="text/javascript" src="<?=$site_config['T_TEMPLATE_PATH'];?>/forum_fn.js?assets_version=1"></script>-->
+        <!--<script type="text/javascript" src="<?=$site_config['T_TEMPLATE_PATH'];?>/ajax.js?assets_version=1"></script>-->
+        <script type="text/javascript" src="<?=$site_config['T_JQUERY_LINK'];?>"></script>
+        <script type="text/javascript" src="<?=$site_config['T_ASSETS_PATH'];?>/javascript/core.js?assets_version=<?=$site_config['T_ASSETS_VERSION'];?>"></script>
+    </body>
+</html>

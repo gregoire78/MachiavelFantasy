@@ -1,0 +1,17 @@
+<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="linklist bulletin" role="menubar">
+		<?php include("views/breadcrumbs.html"); ?>
+
+		<li class="rightside"><?=$site_config['S_TIMEZONE'];?></li>
+		<li class="small-icon icon-delete-cookies rightside"><a href="<?=$site_config['U_DELETE_COOKIES'];?>" data-ajax="true" data-refresh="true" role="menuitem"><?=$site_config['L_DELETE_COOKIES'];?></a></li>
+		<?php if ($site_config['S_USER_LOGGED_IN']){ ?>
+			<li class="small-icon icon-members rightside" data-last-responsive="true"><a href="<?=$site_config['U_MEMBERLIST'];?>" title="<?=$site_config['L_MEMBERLIST'];?>" role="menuitem"><?=$site_config['L_MEMBERLIST'];?></a></li>
+		<?php } ?>
+		<li class="small-icon icon-team rightside" data-last-responsive="true"><a href="<?=$site_config['U_TEAM'];?>" role="menuitem"><?=$site_config['L_THE_TEAM'];?></a></li>
+		<li class="small-icon icon-contact rightside" data-last-responsive="true"><a href="<?=$site_config['U_CONTACT_US'];?>" role="menuitem"><?=$site_config['L_CONTACT_US'];?></a></li>
+	</ul>
+
+	</div>
+</div>

@@ -1,0 +1,105 @@
+<div class="navbar" role="navigation" style="margin-top: 20px;">
+	<div class="inner">
+
+		<ul id="nav-main" class="linklist bulletin" role="menubar">
+
+			<li id="quick-links" class="small-icon responsive-menu dropdown-container dropdown-right dropdown-down" data-skip-responsive="true">
+				<a href="#" class="responsive-menu-link dropdown-trigger dropdown-toggle"><?=$site_config['L_QUICK_LINKS'];?></a>
+				<div class="dropdown hidden" style="display: none; margin-right: -1479.5px;">
+					<div class="pointer"><div class="pointer-inner"></div></div>
+					<ul class="dropdown-contents dropdown-nonscroll" role="menu" style="margin-left: 0px; left: 0px; max-width: 1345px;">
+
+						<?php if ($site_config['S_DISPLAY_SEARCH'])
+						{ ?>
+							<li class="separator"></li>
+							<?php if ($site_config['S_REGISTERED_USER']) { ?>
+								<li class="small-icon icon-search-self"><a href="<?=$site_config['U_SEARCH_SELF'];?>" role="menuitem"><?=$site_config['L_SEARCH_SELF'];?></a></li>
+							<?php }
+							if ($site_config['S_USER_LOGGED_IN']) { ?>
+								<li class="small-icon icon-search-new"><a href="<?=$site_config['U_SEARCH_NEW'];?>" role="menuitem"><?=$site_config['L_SEARCH_NEW'];?></a></li>
+							<?php }
+							if ($site_config['S_LOAD_UNREADS']) { ?>
+								<li class="small-icon icon-search-unread"><a href="<?=$site_config['U_SEARCH_UNREAD'];?>" role="menuitem"><?=$site_config['L_SEARCH_UNREADS'];?></a></li>
+							<?php } ?>
+							<li class="small-icon icon-search-unanswered"><a href="<?=$site_config['U_SEARCH_UNANSWERED'];?>" role="menuitem"><?=$site_config['L_SEARCH_UNANSWERED'];?></a></li>
+							<li class="small-icon icon-search-active"><a href="<?=$site_config['U_SEARCH_ACTIVE_TOPICS'];?>" role="menuitem"><?=$site_config['L_SEARCH_ACTIVE_TOPICS'];?></a></li>
+							<li class="separator"></li>
+							<li class="small-icon icon-search"><a href="<?=$site_config['U_SEARCH'];?>" role="menuitem"><?=$site_config['L_SEARCH'];?></a></li>
+						<?php } ?>
+
+						<?php if (!$site_config['S_IS_BOT']&&($site_config['S_DISPLAY_MEMBERLIST']||$site_config['U_TEAM'])){ ?>
+							<li class="separator"></li>
+							<?php if($site_config['S_DISPLAY_MEMBERLIST']){ ?><li class="small-icon icon-members"><a href="<?=$site_config['U_MEMBERLIST'];?>" role="menuitem"><?=$site_config['L_MEMBERLIST'];?></a></li><?php }
+							if($site_config['U_TEAM']){ ?><li class="small-icon icon-team"><a href="<?=$site_config['U_TEAM'];?>" role="menuitem"><?=$site_config['L_THE_TEAM'];?></a></li><?php }
+						} ?>
+						<li class="separator"></li>
+
+					</ul>
+				</div>
+			</li>
+
+			<li class="small-icon dragon_icon" data-last-responsive="true"><a href="/association.php" rel="help" title="Association" role="menuitem">Association</a></li>
+			<li class="small-icon calendar_icon" data-last-responsive="true"><a href="/agenda.php" rel="help" title="Voir les dates des événements" role="menuitem">Agenda</a></li>
+			<li class="small-icon game_icon" data-last-responsive="true"><a href="/types.php" rel="help" title="Liste des types de jeux" role="menuitem">Jeux</a></li>
+			<li class="small-icon forum_icon" data-last-responsive="true"><a href="<?=$site_config['U_INDEX'];?>" rel="help" title="<?=$site_config['L_INDEX'];?>" role="menuitem"><?=$site_config['L_INDEX'];?></a></li>
+
+			<li class="small-icon icon-faq" data-last-responsive="true"><a href="<?=$site_config['U_FAQ'];?>" rel="help" title="<?=$site_config['L_FAQ_EXPLAIN'];?>" role="menuitem"><?=$site_config['L_FAQ'];?></a></li>
+			<?php
+				if($site_config['U_ACP']){ ?><li class="small-icon icon-acp" data-last-responsive="true"><a href="<?=$site_config['U_ACP'];?>" title="<?=$site_config['L_ACP'];?>" role="menuitem"><?=$site_config['L_ACP_SHORT'];?></a></li><?php }
+				if($site_config['U_MCP']){ ?><li class="small-icon icon-mcp" data-last-responsive="true"><a href="<?=$site_config['U_MODCP'];?>" title="<?=$site_config['L_MCP'];?>" role="menuitem"><?=$site_config['L_MCP_SHORT'];?></a></li><?php }
+			?>
+
+			<?php if ($site_config['S_REGISTERED_USER']){ ?>
+				<li id="username_logged_in" class="rightside  <?php if ($site_config['CURRENT_USER_AVATAR'])echo 'no-bulletin'; ?>" data-skip-responsive="true">
+					<div class="header-profile dropdown-container">
+						<a href="<?=$site_config['U_PROFILE'];?>" class="header-avatar dropdown-trigger dropdown-toggle"><?php if($site_config['CURRENT_USER_AVATAR']){echo $site_config['CURRENT_USER_AVATAR']." ";} echo $site_config['CURRENT_USERNAME_SIMPLE'];?></a>
+						<div class="dropdown hidden">
+							<div class="pointer"><div class="pointer-inner"></div></div>
+							<ul class="dropdown-contents" role="menu">
+								<?php if($site_config['U_RESTORE_PERMISSIONS']){ ?><li class="small-icon icon-restore-permissions"><a href="<?=$site_config['U_RESTORE_PERMISSIONS'];?>"><?=$site_config['L_RESTORE_PERMISSIONS'];?></a></li><?php } ?><!-- ENDIF -->
+
+								<li class="small-icon icon-ucp"><a href="<?=$site_config['U_PROFILE'];?>" title="<?=$site_config['L_PROFILE'];?>" role="menuitem"><?=$site_config['L_PROFILE'];?></a></li>
+								<li class="small-icon icon-profile"><a href="<?=$site_config['U_USER_PROFILE'];?>" title="<?=$site_config['L_READ_PROFILE'];?>" role="menuitem"><?=$site_config['L_READ_PROFILE'];?></a></li>
+
+
+								<li class="separator"></li>
+								<li class="small-icon icon-logout"><a href="<?=$site_config['U_LOGIN_LOGOUT'];?>" title="<?=$site_config['L_LOGIN_LOGOUT'];?>" accesskey="x" role="menuitem"><?=$site_config['L_LOGIN_LOGOUT'];?></a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<?php if ($site_config['S_DISPLAY_PM']){ ?>
+					<li class="small-icon icon-pm rightside" data-skip-responsive="true">
+						<a href="<?=$site_config['U_PRIVATEMSGS'];?>" role="menuitem"><span><?=$site_config['L_PRIVATE_MESSAGES'];?> [</span><strong><?=$site_config['PRIVATE_MESSAGE_COUNT']; ?></strong><span>]</span></a>
+					</li>
+				<?php }
+				if ($site_config['S_NOTIFICATIONS_DISPLAY']){ ?>
+					<li class="small-icon icon-notification dropdown-container dropdown-<?=$site_config['S_CONTENT_FLOW_END'];?> rightside" data-skip-responsive="true">
+						<a href="<?=$site_config['U_VIEW_ALL_NOTIFICATIONS'];?>" id="notification_list_button" class="dropdown-trigger dropdown-toggle"><span><?=$site_config['L_NOTIFICATIONS'];?> [</span><strong><?=$site_config['UNREAD_NOTIFICATIONS_COUNT']; ?></strong><span>]</span></a>
+						<?php include_once("views/notification_dropdown.html");?>
+					</li>
+				<?php } ?>
+
+			<?php } else { ?>
+				<li class="small-icon icon-logout rightside" data-skip-responsive="true"><a href="<?=$site_config['U_LOGIN_LOGOUT'];?>" title="<?=$site_config['L_LOGIN_LOGOUT'];?>" accesskey="x" role="menuitem"><?=$site_config['L_LOGIN_LOGOUT'];?></a></li>
+				<?php if ($site_config['S_REGISTER_ENABLED'] && !($site_config['S_SHOW_COPPA']||$site_config['S_REGISTRATION']) ){ ?>
+					<li class="small-icon icon-register rightside" data-skip-responsive="true"><a href="<?=$site_config['U_REGISTER'];?>" role="menuitem">M’enregistrer</a></li>
+				<?php }
+			} ?>
+
+		</ul>
+
+		<ul id="nav-breadcrumbs" class="linklist navlinks" role="menubar">
+			<?php include_once("views/breadcrumbs.html"); ?>
+
+			<li class="rightside" style="display: none;"><a href="/association.php" title="Information sur l'association" role="menuitem">L'association</a></li>
+		</ul>
+
+	</div>
+</div>
+<!--<div style="margin-top: 4px;clear: both;">
+	<?php if ($user->data['user_id'] != ANONYMOUS){ ?>
+	<p class="right responsive-center time rightside"><?=$site_config['LAST_VISIT_DATE'];?></p><!--Dernière visite
+	<?php } ?>
+	<p class="<?php if ($user->data['user_id'] == ANONYMOUS){ echo 'right'; } ?> responsive-center time"><?=$site_config['CURRENT_TIME'];?></p><!--Date actuel
+</div>-->

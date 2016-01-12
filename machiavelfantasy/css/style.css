@@ -1,0 +1,89 @@
+/*---------------------------------- police et style du header Machiavel Fantasy --------------------------*/
+html{
+    background: url("../images/background/background-image-2.jpg") no-repeat center -380px;
+    /*background: url("../images/background/background.jpg") no-repeat top center;*/
+    /*background: url("../images/background/page_bg.jpg") no-repeat top center;*/
+    background-attachment: fixed;
+    /*background-size: 50% 50%;*/
+}
+html,body {
+    background-color: transparent;
+
+}
+
+/*On rajoute les ombres*/
+#wrap, .machiavelmenubar, .navbar, .forabg, .content_machiavel, .bg1, .bg2,.bg3, .forumbg, .panel
+{
+    box-shadow: 1px 1px 1px #121212;
+}
+
+/*On supprime les ombres*/
+.panel-container .panel, .forumbg .bg1, .forumbg .bg2, .forumbg .bg3
+{
+    box-shadow: none;
+}
+
+/*-------Titre/menu------------*/
+div.machiavelmenubar
+{
+    /*dégrader 1*/
+    /*background-image: linear-gradient( #223348, #AFB9C5);*/
+
+    /*dégrader 2*/
+    background-image: linear-gradient( #473930, #AFB9C5);
+
+    /*dégrader 3*/
+    /*background-image: linear-gradient( #4D5345, #AFB9C5);*/
+    /*border: 1px solid #BCE3D4;*/
+    /*border: 1px solid #e1ebf7;*/
+    border-radius: 7px;
+}
+
+/*-------Contenu nom et descriptif de l'associaion------*/
+.machiavel_description
+{
+    font-size: 20px;
+    padding:30px;
+}
+.machiavel_description a, .machiavel_description a:hover
+{
+    text-decoration: none;
+}
+
+/*--------Nom de l'association------------*/
+.machiavel_description h1
+{
+    /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+    margin: 0;
+    /*font-weight: bold;
+    font-size: 2em;
+    color: #fbfbfb;
+    line-height: 1.1;*/
+}
+
+/*------------Descriptif de l'association-----------*/
+.machiavel_description p{
+    /*line-height: 1.3em;
+    font-size: 1.1em;*/
+    margin: 0;
+    color: #dadada;
+}
+
+#wrap
+{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.content_machiavel
+{
+    border: 1px solid #BCE3D4;
+    border-radius:7px;
+    height: 1000px;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.content .machiavel-title
+{
+    font-size: 2.6em;
+}

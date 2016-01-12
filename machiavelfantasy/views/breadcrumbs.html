@@ -1,0 +1,16 @@
+<li class="small-icon icon-home breadcrumbs" style="max-width: 1073px;">
+    <?php if($site_config['U_SITE_HOME']){ ?><span class="crumb" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="<?=$site_config['U_SITE_HOME'];?>" accesskey="h" data-navbar-reference="index" itemprop="url" title="<?=$site_config['L_SITE_HOME'];?>"><span itemprop="title"><?=$site_config['L_SITE_HOME'];?></span></a></span><?php } ?>
+
+
+    <?php if($site_config['BREADCRUMBS'])
+    {
+        foreach($site_config['BREADCRUMBS'] as $breadcrumbs)
+        { ?>
+            <span class="crumb" itemscope=""><?php if ($breadcrumbs['lien']){ ?><a href="<?= $breadcrumbs['lien'];?>" accesskey="h" data-navbar-reference="index" itemprop="url" title="<?= $breadcrumbs['libelle'];?>"><?php } ?><span itemprop="title"><?= $breadcrumbs['libelle'];?></span><?php if($breadcrumbs['lien']){ ?></a><?php } ?></span>
+        <?php }
+	}
+    if($site_config['S_DISPLAY_SEARCH']&& !$site_config['S_IN_SEARCH'])
+    { ?>
+        <li class="rightside responsive-search" style="display: none;"><a href="<?=$site_config['U_SEARCH'];?>" title="<?=$site_config['L_SEARCH_ADV_EXPLAIN'];?>" role="menuitem"><?=$site_config['L_SEARCH'];?></a></li>
+    <?php } ?>
+</li>

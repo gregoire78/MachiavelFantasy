@@ -1,0 +1,51 @@
+<div id="notification_list" class="dropdown dropdown-extended notification_list">
+	<div class="pointer"><div class="pointer-inner"></div></div>
+	<div class="dropdown-contents">
+		<div class="header">
+			<?=$site_config['L_NOTIFICATIONS'];?>
+			<span class="header_settings">
+				<a href="<?=$site_config['U_NOTIFICATION_SETTINGS'];?>"><?=$site_config['L_SETTINGS'];?></a>
+				<?php if($site_config['NOTIFICATIONS_COUNT']){ ?>
+					<span id="mark_all_notifications"> &bull; <a href="<?=$site_config['U_MARK_ALL_NOTIFICATIONS'];?>" data-ajax="notification.mark_all_read"><?=$site_config['L_MARK_ALL_NOTIFICATIONS'];?></a></span>
+				<?php } ?>
+			</span>
+		</div>
+
+		<ul>
+			<?php if(!$site_config['NOTIFICATION_USER']){ ?>
+				<li class="no_notifications">
+					<?=$site_config['L_NO_NOTIFICATIONS'];?>
+				</li>
+			<?php }else{ ?>
+
+				<?php  foreach ($site_config['NOTIFICATION_USER'] as $notification){ ?>
+					<li class="<?php if($notification['UNREAD'])echo 'bg2 '; if($notification['STYLING'])echo $notification['STYLING']; if(!$notification['URL'])echo ' no-url'; ?>">
+						<?php if($notification['URL']){ ?>
+							<a class="notification-block" href="<?php if($notification['UNREAD']){	echo $notification['U_MARK_READ']; ?>" data-real-url="<?=$notification['URL'];}else{ echo $notification['URL']; }?>">
+						<?php }
+							if($notification['AVATAR'])echo $notification['AVATAR'];
+							else{ ?>
+								<img src="<?=$site_config['T_THEME_PATH'];?>/images/no_avatar.gif" alt="" />
+							<?php } ?>
+
+							<div class="notification_text">
+								<p class="notification-title"><?=$notification['FORMATTED_TITLE'];?></p>
+								<?php if($notification['REFERENCE']){ ?> <p class="notification-reference"><?=$notification['REFERENCE']; ?></p><?php } ?>
+								<?php if($notification['FORUM']){ ?> <p class="notification-reference"><?=$notification['FORUM']; ?></p><?php } ?>
+								<?php if($notification['REASON']){ ?> <p class="notification-reference"><?=$notification['REASON']; ?></p><?php } ?>
+								<p class="notification-time"><?=$notification['TIME'];?></p>
+							</div>
+						<?php if($notification['URL']){ ?></a><?php }
+						if($notification['UNREAD']){ ?>
+							<a href="<?=$notification['U_MARK_READ'];?>" class="mark_read icon-mark" data-ajax="notification.mark_read" title="<?=$site_config['L_MARK_READ'];?>"></a>
+						<?php } ?>
+					</li>
+				<?php } ?>
+			<?php } ?>
+		</ul>
+
+		<div class="footer">
+			<a href="<?=$site_config['U_VIEW_ALL_NOTIFICATIONS'];?>"><span><?=$site_config['L_SEE_ALL'];?></span></a>
+		</div>
+	</div>
+</div>

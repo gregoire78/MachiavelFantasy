@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Machiavel Fantasy - <?= $site_config['CURRENT_PAGE']["libelle"];?></title>
+
+        <link href="<?=$site_config['T_STYLESHEET_LINK'];?>" rel="stylesheet">
+        <link href="<?=$site_config['T_STYLESHEET_LANG_LINK'];?>" rel="stylesheet">
+        <link href="<?=$site_config['T_THEME_PATH'];?>/responsive.css?assets_version=<?=$site_config['T_ASSETS_VERSION'];?>" rel="stylesheet" media="all and (max-width: 700px), all and (max-device-width: 700px)">
+
+        <!--Style-->
+        <link href="/css/icon_machiavel.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+
+
+    </head>
+    <body id="phpbb" class="notouch section-index ltr hasjs">
+        <div id="wrap">
+            <div id="page-header">
+                <div class="machiavelmenubar">
+                    <div class="machiavel_description">
+
+                        <a href="<?=$site_config['U_SITE_HOME'];?>">
+                            <h1><?=$site_config['SITENAME'];?></h1>
+                                <p><?=$site_config['SITE_DESCRIPTION'];?></p>
+                        </a>
+                    </div>
+                </div>
+                <?php
+                    include_once("views/navbar_header.html");//On affiche la bar de menu du header
+                ?>
+            </div>
+            <div id="page-body" style="">
+                <div class="panel">
+                    <div class="inner">
+                        <div <?php if(!$site_config['ERROR_PAGE'])echo 'class="content"';?> >
+                            <h2 <?php if($site_config['ERROR_PAGE'])echo "class=message-title";?> ><?= $site_config['CURRENT_PAGE']["libelle"]; ?></h2>
